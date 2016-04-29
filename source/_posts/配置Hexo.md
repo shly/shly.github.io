@@ -1,7 +1,7 @@
 ---
 title: 配置Hexo
 date: 2016-04-26 23:39:40
-tags: 配置hexo,hexo
+tags: 配置hexo
 ---
 
 hexo要在node环境下部署。
