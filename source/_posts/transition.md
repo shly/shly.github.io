@@ -23,7 +23,7 @@ CSS3的transition允许css的属性值在一定的时间区间内平滑的过渡
   （3）transition-timing-function：指定过渡函数
   （4）transition-delay:指定过渡开始出现的延迟时间
 ### 简写形式
-   transition:<property> <duration> <animation type> <delay>
+      transition: <property> <duration> <animation type> <delay>
 ### 可以使用过渡的属性
   （1）颜色属性
   （2）具有长度值，百分比的属性
@@ -52,8 +52,9 @@ CSS3的transition允许css的属性值在一定的时间区间内平滑的过渡
 		input:focus{
 			width: 300px;
 		}
-   这样当input获得焦点时和失去焦点时，input宽度的变化都是在1秒内完成的。
-   但是如果像下面这样写
+这样当input获得焦点时和失去焦点时，input宽度的变化都是在1秒内完成的。
+但是如果像下面这样写
+
 		input{
 			width: 200px;
 			height: 20px;
@@ -64,13 +65,13 @@ CSS3的transition允许css的属性值在一定的时间区间内平滑的过渡
 			width: 300px;
 			transition: width 1s;
 		}
-
-   那么当input获得焦点时，宽度从200px变化到300px是在1s内完成的，失去焦点时宽度从300px变回到200px时则是在0.2s内完成的。
-   演示见 http://shly.github.io/shly/IFE/task_12/index.html
+那么当input获得焦点时，宽度从200px变化到300px是在1s内完成的，失去焦点时宽度从300px变回到200px时则是在0.2s内完成的。
+演示见 http://shly.github.io/shly/IFE/task_12/index.html
 ### css过渡的触发
-  （1）伪元素触发 :active :focus :checked
-  （2）媒体查询触发
-  （3）JavaScript触发，给元素添加新的类，向新的类添加过渡如
+（1）伪元素触发 :active :focus :checked
+（2）媒体查询触发
+（3）JavaScript触发，给元素添加新的类，向新的类添加过渡如
+
 		.box{
 			width:100px;
 			height:100px;
@@ -81,10 +82,11 @@ CSS3的transition允许css的属性值在一定的时间区间内平滑的过渡
 			width:200px;
 		}
 ### 启用硬件加速使过渡更流畅
-   以下内容引自：http://www.cnblogs.com/rubylouvre/p/3471490.html
+   以下内容引自：<http://www.cnblogs.com/rubylouvre/p/3471490.html>
    CSS animations, transforms 以及 transitions不会自动开启GPU加速，而是由浏览器的缓慢的软件渲染引擎来执行。那我们怎样才可以切换到GPU模式呢，很多浏览器提供了某些触发的CSS规则。
    现在，像Chrome, FireFox, Safari, IE9+和最新版本的Opera都支持硬件加速，当它们检测到页面中某个DOM元素应用了某些CSS规则时就会开启，最显著的特征的元素的3D变换。
    例如：
+
 		.cube {
 		   -webkit-transform: translate3d(250px,250px,250px)
 		   rotate3d(250px,250px,250px,-120deg)
@@ -124,8 +126,7 @@ CSS3的transition允许css的属性值在一定的时间区间内平滑的过渡
 		   transform: translate3d(0, 0, 0);
 		  /* Other transform properties here */
 		}
-   原生的移动端应用(Native mobile applications)总是可以很好的运用GPU，这是为什么它比网页应用(Web apps)表现更好的原因。硬件加速在移动端尤其有用，因为它可以有效的减少资源的利用(麦时注：移动端本身资源有限)。
-   只对我们需要实现动画效果的元素应用以上方法，如果仅仅为了开启硬件加速而随便乱用，那是不明智的。
+原生的移动端应用(Native mobile applications)总是可以很好的运用GPU，这是为什么它比网页应用(Web apps)表现更好的原因。硬件加速在移动端尤其有用，因为它可以有效的减少资源的利用(麦时注：移动端本身资源有限)。
 
-   小心使用这些方法，如果通过你的测试，结果确是提高了性能，你才可以使用这些方法。使用GPU可能会导致严重的性能问题，因为它增加了内存的使用，而且它会减少移动端设备的电池寿命。
-   
+只对我们需要实现动画效果的元素应用以上方法，如果仅仅为了开启硬件加速而随便乱用，那是不明智的。
+小心使用这些方法，如果通过你的测试，结果确是提高了性能，你才可以使用这些方法。使用GPU可能会导致严重的性能问题，因为它增加了内存的使用，而且它会减少移动端设备的电池寿命。
