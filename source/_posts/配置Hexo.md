@@ -6,6 +6,7 @@ tags:
   - hexo配置
 categories:
   - 学习笔记
+  - hexo学习
 ---
 
 hexo要在node环境下部署。

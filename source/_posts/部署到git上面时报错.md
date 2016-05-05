@@ -5,6 +5,7 @@ tags:
   - hexo部署
 categories:
   - 学习笔记
+  - hexo学习
 ---
 报错信息
 		FATAL spawn git ENOENT
