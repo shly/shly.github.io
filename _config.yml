@@ -72,3 +72,4 @@ deploy:
   type: git
   repo: https://github.com/shly/shly.github.io.git
   branch: master
+duoshuo_shortname: shangly
