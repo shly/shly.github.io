@@ -1,17 +1,22 @@
 ---
 title: css3中transition用法总结
 date: 2016-05-05 13:33:54
-tags: css3
+tags: 
+  - css3
+  - css3 transition
+categories:
+  - 学习笔记
 ---
 
 以下内容主要出自《图解CSS3-大漠》
 
 ### W3C标准中对transition的描述
 CSS3的transition允许css的属性值在一定的时间区间内平滑的过渡。这种效果可以在鼠标单击，获得焦点，被点击或者对元素的任何改变中触发，并平滑地以动画的效果改变css的属性值。
+<!-- more -->
 ### css中创建简单过渡的步骤
   （1）在默认样式中声明元素的初始状态样式
   （2）声明过渡元素最终状态样式
-  （3）在默认样式中通过添加过渡函数，添加一些不同的样式。
+  （3）在默认样式中通过添加过渡函数，添加一些不同的样式。 
 ### transition属性主要包含四个属性值
   （1）transition-property：指定过渡或动态模拟的CSS属性
   （2）transition-duration：指定完成过渡所需的时间

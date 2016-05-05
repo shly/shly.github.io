@@ -1,7 +1,11 @@
 ---
 title: 配置Hexo
 date: 2016-04-26 23:39:40
-tags: hexo
+tags: 
+  - hexo
+  - hexo配置
+categories:
+  - 学习笔记
 ---
 
 hexo要在node环境下部署。
@@ -10,6 +14,7 @@ hexo要在node环境下部署。
 		$ npm install -g hexo
 2. 部署hexo
 		$ hexo init
+<!-- more -->
 3. 生成html页面
 		$ hexo g
 4. 运行测试环境

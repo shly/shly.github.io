@@ -1,64 +1,46 @@
 ---
 title: css3选择器整理
 date: 2016-05-03 16:17:58
-tags: css3
+tags: 
+  - css3
+  - css3选择器
+categories:
+  - 学习笔记
 ---
 ### 一 基本选择器（基本兼容所有浏览器）
 
 通配选择器 *
-
 元素选择器 E
-
 类选择器 .class
-
 ID选择器 #id
-
 组群选择器
-
+<!-- more -->
 ### 二 层次选择器
 
 E F 后代选择器 （基本兼容所有浏览器）
-
 E>F 子选择器 （ie7+）
-
 E+F 相邻兄弟选择器（ie7+）
-
 E~F 通用选择器匹配位于元素E之后的所有F元素（ie7+）
 
 ### 三 伪类选择器
 
 1. 动态伪类选择器:link,:visited,:hover,:active, :focus
-
 2. 目标伪类选择器:target
-
 3. 语言伪类选择器E:lang(language)（ie8+）
-
 4. UI元素状态伪类选择器E:checked E:enabled E:disabled（ie9+）
-
 5. 结构伪类选择器（ie9+）
 
  5.1 E:first-child
-
  5.2 E:last-child
-
  5.3 E:root在html文档中始终为html
-
  5.4 E F:nth-child(n) n的起始值为1 F的父元素的第二个子元素
-
  5.5 E F:nth-last-child(n)
-
  5.6 E:nth-of-type(n)选择父元素内具有指定类型的第n个E元素
-
  5.7 E:nth-of-type(n)选择父元素内具有指定类型的倒数第n个E元素
-
  5.8 E:first-of-type
-
  5.9 E:last-of-type
-
  5.10 E:empty
-
  5.11 E:only-child父元素只包含一个子元素，且该子元素匹配E元素
-
  5.12 E:only-of-type父元素只包含一个同类型的子元素，且该子元素匹配E元素
 
 6. 否定伪类选择器:not()(ie9+)
@@ -86,19 +68,12 @@ E~F 通用选择器匹配位于元素E之后的所有F元素（ie7+）
 ### 五  属性选择器（ie7+）
 
 E[attr]具有attr属性的元素
-
 E[attr = val]
-
 E[attr |= val]具有val或者以val-开头
-
 E[attr ~= val] attr有多个空格分隔的值其中一个为val
-
 E[attr*=val]attr的任意位置包含了val
-
 E[attr^=val]属性值以val开头
-
- E[attr$=val]属性以val结尾
-
+E[attr$=val]属性以val结尾
 选择器优先级：
 
  !important>内联>id>class>tag
