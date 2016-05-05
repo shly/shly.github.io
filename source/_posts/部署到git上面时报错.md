@@ -1,7 +1,7 @@
 ---
 title: 部署到git上面时报错 FATAL spawn git ENOENT
 date: 2016-04-27 23:58:01
-tags: hexo部署报错
+tags: hexo
 ---
 报错信息
 		FATAL spawn git ENOENT
