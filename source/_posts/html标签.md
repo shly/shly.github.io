@@ -1,7 +1,10 @@
 ---
 title: html标签学习
 date: 2016-05-06 10:36:02
-tags:
+tags: html标签
+categories:
+  - 学习笔记
+  - 前端学习
 ---
 # a标签
 ## 属性
