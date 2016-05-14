@@ -3,7 +3,7 @@ title: FlexBox学习笔记
 date: 2016-05-13 15:41:17
 tags: 
   - css3
-  - flex
+  - FlexBox
 categories:
   - 学习笔记
   - 前端学习
@@ -45,7 +45,7 @@ FlexBox是一个布局模块，不是一个简单的布局属性，它包含父�
 
 		justify-content: flex-start | flex-end | center | space-between | space-around;
 7. align-content（flex container）
-这个属性主要用来调准伸缩行在伸缩容器里的对齐方式。类似于伸缩项目在主轴上使用“justify-content”一样。（侧轴方向的对齐方式）
+这个属性主要用来调准伸缩行在伸缩容器里的对齐方式。类似于伸缩项目在主轴上使用“justify-content”一样。（侧轴方向的对齐方式）*容器内必须有多行的项目，该属性才能渲染出效果*。
 
 		align-content: flex-start | flex-end | center | space-between | space-around | stretch;
 8. align-items（flex container）
@@ -73,7 +73,78 @@ FlexBox是一个布局模块，不是一个简单的布局属性，它包含父�
 这是“flex-grow”、“flex-shrink”和“flex-basis”三个属性的缩写。其中第二个和第三个参数（flex-shrink、flex-basis）是可选参数。默认值为“0 1 auto”。
 
 		flex: none | [ <'flex-grow'> <'flex-shrink'>|| <'flex-basis'> ]
-## justify-content,align-content,align-items,flex-basis 区别
 
+## 实例讲解
+
+这几个都是对齐方式，为了方便演示，
+1. 先将几个box设置为长宽各不相同，在没有设置布局方式的时候，盒子应该从上往下依次排列。
+
+		.box-5{
+			width: 100px;
+			height: 100px;
+		}
+		.box-6{
+			width: 200px;
+			height: 200px;
+		}
+		.box-7{
+			width: 300px;
+			height: 300px;
+		}
+		.box-8{
+			width: 400px;
+			height: 400px;
+		}
+		.container_1{
+			width: 2000px;
+			height: 800px;
+			border: 1px solid #00F;
+		}
+2. 将父元素的布局方式设为display:flex之后，子元素的四个盒子显示到同一排，如图。因为如果没有设置其他的属性，flexbox布局方式中默认flex-direction为row，即从左向右的方式排列。justify-content默认为flex-start，即向一行的起始位置靠齐。因为flexdirection为从左向右，则box应该向左靠齐。
+![flex](/img/flex/2.jpg)
+3. 改变父元素的justify-content，如改为center，我们看一下布局会变为什么样子。可以看到盒子整体在父元素中居中。
+![justify-content](/img/flex/3.jpg)
+4. 接下来设置下order。
+
+		div.box-5{
+			width: 100px;
+			height: 100px;
+			order: 1;
+		}
+		div.box-6{
+			width: 200px;
+			height: 200px;
+			order: 5;
+		}
+		div.box-7{
+			width: 300px;
+			height: 300px;
+			order: 3;
+		}
+		div.box-8{
+			width: 400px;
+			height: 400px;
+			order: -1;
+		}
+结果如图。
+![order](/img/flex/4.jpg)
+可见，order按大小排序，负数也可以。
+5. 使用align-items,设置为align-items: flex-end，box的显示方式如图。可见align-items设置的是各行元素间的对齐方式。
+![align-items](/img/flex/5.jpg)
+6. 接下来我们对单独的一个box设置align-self属性，如
+
+		div.box-8{
+			width: 400px;
+			height: 400px;
+			order: -1;
+			align-self: flex-start;
+		}
+结果如图，很明显align-self属性设置的是单独的一个box的对齐方式。
+![align-self](/img/flex/6.jpg)
+7. 设置其中一个box的flex-grow为1，则这个box将忽略本身的width属性，占满父元素剩下的全部空间，可以用于自适应布局中，如图。
+将所有的box的flex-grow都设为1，则将剩余空间的宽度分为4分，然后分别加到各个盒子上，如图。
+![flex-grow](/img/flex/7.jpg)
+8. flex-basis，当为数值时与width类似，会覆盖元素本身的width。设为其他数值，就相当于元素的宽度在这个值得基础上加，如剩余空间为100，四个box的flex-grow都设为1，假如原来四个盒子的flex-basis均为30px,则现在各个盒子的宽度均为55px。
+![flex-basis](/img/flex/6.jpg)
 演示链接
 http://shly.github.io/shly/IFE/task_10/index.html
