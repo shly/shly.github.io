@@ -61,7 +61,7 @@ FlexBox是一个布局模块，不是一个简单的布局属性，它包含父�
 		flex-grow: <number>; /* default 0 */
 如果所有伸缩项目的“flex-grow”设置了“1”，那么每个伸缩项目将设置为一个大小相等的剩余空间。如果你给其中一个伸缩项目设置了“flex-grow”值为“2”，那么这个伸缩项目所占的剩余空间是其他伸缩项目所占剩余空间的两倍。
 11. flex-shrink(flex items)
-根据需要用来定义伸缩项目收缩的能力。[注意：负值同样生效。]
+根据需要用来定义伸缩项目收缩的能力。
 
 		flex-shrink: <number>; /* default 1 */
 12. flex-basis（flex items）
@@ -142,9 +142,62 @@ FlexBox是一个布局模块，不是一个简单的布局属性，它包含父�
 结果如图，很明显align-self属性设置的是单独的一个box的对齐方式。
 ![align-self](/img/flex/6.jpg)
 7. 设置其中一个box的flex-grow为1，则这个box将忽略本身的width属性，占满父元素剩下的全部空间，可以用于自适应布局中，如图。
-将所有的box的flex-grow都设为1，则将剩余空间的宽度分为4分，然后分别加到各个盒子上，如图。
 ![flex-grow](/img/flex/7.jpg)
+将所有的box的flex-grow都设为1，则将剩余空间的宽度分为4分，然后分别加到各个盒子上。
 8. flex-basis，当为数值时与width类似，会覆盖元素本身的width。设为其他数值，就相当于元素的宽度在这个值得基础上加，如剩余空间为100，四个box的flex-grow都设为1，假如原来四个盒子的flex-basis均为30px,则现在各个盒子的宽度均为55px。
-![flex-basis](/img/flex/6.jpg)
+9 flex-shrink
+该属性来设置，当父元素的宽度小于所有子元素的宽度的和时（即子元素会超出父元素），子元素如何缩小自己的宽度的。
+flex-shrink的默认值为1，当父元素的宽度小于所有子元素的宽度的和时，子元素的宽度会减小。值越大，减小的越厉害。如果值为0，表示不减小。
+
+		div.container_2{
+			width: 1000px;
+			height: 800px;
+			border: 1px solid #00F;
+			display: flex;
+			justify-content: center;
+			align-content: flex-end;
+			align-items: flex-end;
+		}
+		div.box-9{
+			flex-basis: 300px;
+			height: 100px;
+		}
+		div.box-10{
+			flex-basis: 300px;
+			height: 200px;
+		}
+		div.box-11{
+			flex-basis: 300px;
+			height: 300px;
+		}
+		div.box-12{
+			flex-basis: 300px;
+			height: 400px;
+		}
+因为默认为1，则四个box收缩相同的宽度，不会溢出，且收缩之后box的宽度还相同。如图。
+![flex-basis](/img/flex/8.jpg)
+下面改一下各个box的flex-shrink值
+		div.box-9{
+			flex-basis: 300px;
+			height: 100px;
+			flex-shrink: 1;
+		}
+		div.box-10{
+			flex-basis: 300px;
+			height: 200px;
+			flex-shrink: 2;
+		}
+		div.box-11{
+			flex-basis: 300px;
+			height: 300px;
+			flex-shrink: 3;
+		}
+		div.box-12{
+			flex-basis: 300px;
+			height: 400px;
+			flex-shrink: 4;
+		}
+则盒子将按照1/(1+2+3+4),2/(1+2+3+4),3/(1+2+3+4),4/(1+2+3+4)的比例缩小。如图。
+![flex-basis](/img/flex/9.jpg)
 演示链接
 http://shly.github.io/shly/IFE/task_10/index.html
