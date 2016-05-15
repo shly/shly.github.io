@@ -61,7 +61,7 @@ FlexBox是一个布局模块，不是一个简单的布局属性，它包含父�
 		flex-grow: <number>; /* default 0 */
 如果所有伸缩项目的“flex-grow”设置了“1”，那么每个伸缩项目将设置为一个大小相等的剩余空间。如果你给其中一个伸缩项目设置了“flex-grow”值为“2”，那么这个伸缩项目所占的剩余空间是其他伸缩项目所占剩余空间的两倍。
 11. flex-shrink(flex items)
-根据需要用来定义伸缩项目收缩的能力。
+根据需要用来定义伸缩项目收缩的能力。负值无效。
 
 		flex-shrink: <number>; /* default 1 */
 12. flex-basis（flex items）
