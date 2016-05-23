@@ -8,12 +8,11 @@ categories:
   - 学习笔记
   - 前端学习
 ---
-CSS Columns 是css中定义多行布局的模块，允许规定列之间的内容如何展示，以及如何处理列之间的留白和规则。（将模块分成多列显示，规定列的样式）
 # 主要属性
 ## 1 break-after、break-before、break-inside
 描述页面、列或者区域形成一个盒子后的中断行为（即是否中断以及如何中断），如果没有形成一个盒子，这个实行将会被忽略。
 每一个可能的断点（即每一个元素的边界）都是受三个属性的影响：前一个元素的break-after值，下一个元素的break-before值，以包含元素的break-inside值。
-
+<!-- more -->
 规定断点要遵循以下的规则：
 1. 如果三个值中的任何一个值是强制中断值，即left, right, page, column 或者region，这个值具有优先级，如果有多个强制型的中断值同时出现，那么在流中最后一个出现的值生效。（即break-before的值的优先级高于break-after, break-after的优先级高于break-inside）
 2. 这三个值中的任意一个是避免中断的值，即avoid, avoid-page, avoid-region, avoid-column，那么应用的地方就不会被中断。
