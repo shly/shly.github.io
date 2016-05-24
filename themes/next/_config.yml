@@ -119,7 +119,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   GitHub: https://github.com/shly
-  WeiXin: WeiXin
+  Weibo: http://weibo.com/2352730443/profile?topnav=1&wvr=6&is_all=1
 
 
 # Social Links Icons
@@ -133,8 +133,8 @@ social_icons:
   # KeyMapsToSocalItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
   Twitter: twitter
-  #Weibo: weibo
-  WeiXin: weixin
+  Weibo: weibo
+  #WeiXin: weixin
 
 
 # Sidebar Avatar
