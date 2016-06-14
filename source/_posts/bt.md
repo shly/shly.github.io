@@ -11,6 +11,7 @@ categories:
 今天复习了一下二叉树的遍历，包括递归与非递归形式，记录一下
 首先定义一个简单的二叉树结构，包括节点的值与左子节点和右子节点
 <!-- more -->
+
 	public class TreeNode {
 		int value;
 		TreeNode left,right;
