@@ -43,13 +43,13 @@ categories:
 
 后序遍历
 
-public void postOrder(TreeNode root) {
-		if (root != null) {
-			postOrder(root.left);
-			postOrder(root.right);
-			System.out.print(root.value);
+	public void postOrder(TreeNode root) {
+			if (root != null) {
+				postOrder(root.left);
+				postOrder(root.right);
+				System.out.print(root.value);
+			}
 		}
-	}
 
 递归的形式比较简单，就是调整三行代码的顺序，下面来看非递归的实现。首先是先序遍历
 
