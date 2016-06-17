@@ -70,3 +70,4 @@ http://my.oschina.net/gujianhan/blog/225241
 http://www.cnblogs.com/zhangchaoyang/articles/2222048.html
 http://wenku.baidu.com/view/f786f6be1a37f111f1855bf7.html?from
 http://blog.csdn.net/qq1987924/article/details/45965431
+http://blog.csdn.net/rogerzhanglijie/article/details/8251359  

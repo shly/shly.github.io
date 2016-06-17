@@ -11,6 +11,7 @@ categories:
 ---
 Java中Stack的压栈操作有两个方法，add和push，
 先看下push的api
+<!-- more -->
 
 	 TreeNode java.util.Stack.push(TreeNode item)
 
@@ -42,9 +43,9 @@ Java中Stack的压栈操作有两个方法，add和push，
 再来看一下两者的实现。首先是push方法
 
 push是在Stack类中实现的，可以看到返回的就是压栈的元素本身。
+
 	public E push(E item) {
 	        addElement(item);
-
 	        return item;
 	    }
 而addElement方法是在Vector类中实现的，代码如下：
