@@ -3,7 +3,7 @@ title: jquery源码分析之merge()
 date: 2016-07-17 20:31:09
 tags: 
   - javascript
-  - jquery
+  - jQuery源码
 categories:
   - 学习笔记
   - 前端学习
