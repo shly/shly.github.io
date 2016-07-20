@@ -20,7 +20,7 @@ DOM对象提供了方法setAttribute，getAttribute和removeAttribute来操纵HT
 	var id2=elem.getAttribute('id');
 获取元素的id可以通过上面的两种方式，第一行代码中的方式是通过获取DOM的属性（property）获取的，而第二行代码中getAttribute获取的是HTML标签的特性（attribute）
 
-* 这一点很重要，可以看出，特性，只是DOM中的一个属性而已，而这个属性本身是一个类数组对象-NamedNodeMap对象。
+*这一点很重要，可以看出，特性，只是DOM中的一个属性而已，而这个属性本身是一个类数组对象-NamedNodeMap对象。*
 
 4. HTML标签attribute的名字和值都必须为字符串类型，而DOM对象的property没有此限制，可以是任何类型。
 
