@@ -201,3 +201,11 @@ flex-shrink的默认值为1，当父元素的宽度小于所有子元素的宽�
 ![flex-basis](/img/flex/9.jpg)
 演示链接
 http://shly.github.io/shly/IFE/task_10/index.html
+需要注意的是：
+1. 父元素display:flex之后成为伸缩容器，子元素（除了position:absolute或fixed）无论是display:block或者display:inline，都成为了伸缩项目。
+2. 可以固定一个伸缩项目的宽度，另一个伸缩项目自适应。
+3. 伸缩项目之间的空白自适应。
+4. 可以很方便进行水平和垂直方向的，居左，居中，居右，两边对齐等效果。
+5. android浏览器4.4之前对于flex布局支持不好。
+6. 伸缩项目之间，没有inline-block元素之间的空隙。
+7. 伸缩项目自动box-sizing:border-box。
