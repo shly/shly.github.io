@@ -8,7 +8,8 @@ categories:
   - 学习笔记
   - 前端学习
 ---
-javascript中的this始终指向当前运行的函数所属的对象
+javascript中的this始终指向当前运行的函数所属的对象。
+<!-- more -->
 一 普通的函数调用中this
 
 	 	var x=1;
@@ -51,6 +52,6 @@ javascript中的this始终指向当前运行的函数所属的对象
 			function(){
 				return this.name;
 			}
-			
+
 然后直接调用，因此此时this指向的是window对象。
 而例二中明确指定是调用person的方法，故this指向的是person对象。
