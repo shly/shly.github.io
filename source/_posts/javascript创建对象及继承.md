@@ -14,29 +14,29 @@ categories:
 
 1. 工厂模式
 
-	function Person(name,age){
-		var o = new Object();
-		o.name = name;
-		o.age = age;
-		o.getName = function(){
-		console.log(this.name);
+		function Person(name,age){
+			var o = new Object();
+			o.name = name;
+			o.age = age;
+			o.getName = function(){
+			console.log(this.name);
+			}
+			return o;
 		}
-		return o;
-	}
-	var person = Person("lily",15);
+		var person = Person("lily",15);
 
  缺点：无法识别对象的类型
 
 2. 构造函数模式
 
-	function Person(name,age){
-		this.name = name;
-		this.age = age;
-		this.getName = function(){
-			console.log(this.name);
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+			this.getName = function(){
+				console.log(this.name);
+			}
 		}
-	}
-	var person = new Person("lily",15);
+		var person = new Person("lily",15);
 
 	注意：如何不通过new调用，则this指向window
 
