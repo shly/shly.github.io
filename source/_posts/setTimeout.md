@@ -56,4 +56,4 @@ setTimeout(fn,0)与fn有什么区别呢？
 
 setTimeout(fn,0)表示当前代码执行完（执行栈清空）以后，立即执行（0毫秒间隔）指定的回调函数。
 
-参考http://www.ruanyifeng.com/blog/2014/10/event-loop.html
+本文总结自 http://www.ruanyifeng.com/blog/2014/10/event-loop.html
