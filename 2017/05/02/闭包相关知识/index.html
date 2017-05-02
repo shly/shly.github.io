@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript,闭包," />
 
 
 
@@ -80,16 +80,17 @@
 
 
 
-<meta name="description" content="关于正则表达式的文章http://www.haorooms.com/post/js_regex_refuse">
+<meta name="description" content="什么是闭包？每个函数在创建时都有一个与之对应的执行环境，每个执行环境有一个相关联的变量对象保存在内存中，变量对象中保存的是当前函数中定义的变量和函数。当程序的执行流进入到函数时，就会将函数的执行环境压入到环境栈中，还会生成一个作用域链，作用域链指向的就是一系列变量对象，保证程序对变量的有序访问。正常来说，当一个函数执行完毕，执行环境就会被弹出，其他地方没有办法访问到这个函数对应的变量对象，但是有一">
+<meta name="keywords" content="javascript,闭包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式">
-<meta property="og:url" content="http://yoursite.com/2016/07/28/正则表达式/index.html">
+<meta property="og:title" content="闭包相关知识">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/闭包相关知识/index.html">
 <meta property="og:site_name" content="shlyのspace">
-<meta property="og:description" content="关于正则表达式的文章http://www.haorooms.com/post/js_regex_refuse">
-<meta property="og:updated_time" content="2017-05-02T11:39:22.040Z">
+<meta property="og:description" content="什么是闭包？每个函数在创建时都有一个与之对应的执行环境，每个执行环境有一个相关联的变量对象保存在内存中，变量对象中保存的是当前函数中定义的变量和函数。当程序的执行流进入到函数时，就会将函数的执行环境压入到环境栈中，还会生成一个作用域链，作用域链指向的就是一系列变量对象，保证程序对变量的有序访问。正常来说，当一个函数执行完毕，执行环境就会被弹出，其他地方没有办法访问到这个函数对应的变量对象，但是有一">
+<meta property="og:updated_time" content="2017-05-02T13:02:49.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="关于正则表达式的文章http://www.haorooms.com/post/js_regex_refuse">
+<meta name="twitter:title" content="闭包相关知识">
+<meta name="twitter:description" content="什么是闭包？每个函数在创建时都有一个与之对应的执行环境，每个执行环境有一个相关联的变量对象保存在内存中，变量对象中保存的是当前函数中定义的变量和函数。当程序的执行流进入到函数时，就会将函数的执行环境压入到环境栈中，还会生成一个作用域链，作用域链指向的就是一系列变量对象，保证程序对变量的有序访问。正常来说，当一个函数执行完毕，执行环境就会被弹出，其他地方没有办法访问到这个函数对应的变量对象，但是有一">
 
 
 
@@ -107,7 +108,7 @@
   };
 </script>
 
-  <title> 正则表达式 | shlyのspace </title>
+  <title> 闭包相关知识 | shlyのspace </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +238,7 @@
             
             
               
-                正则表达式
+                闭包相关知识
               
             
           </h1>
@@ -249,19 +250,50 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-28T15:18:00+08:00" content="2016-07-28">
-              2016-07-28
+            <time itemprop="dateCreated" datetime="2017-05-02T21:00:25+08:00" content="2017-05-02">
+              2017-05-02
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/前端学习/" itemprop="url" rel="index">
+                    <span itemprop="name">前端学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/28/正则表达式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/28/正则表达式/" itemprop="commentsCount"></span>
+                <a href="/2017/05/02/闭包相关知识/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/02/闭包相关知识/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -284,7 +316,16 @@
       
 
       
-        <p>关于正则表达式的文章<br><a href="http://www.haorooms.com/post/js_regex_refuse" target="_blank" rel="external">http://www.haorooms.com/post/js_regex_refuse</a></p>
+        <h2 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h2><p>每个函数在创建时都有一个与之对应的执行环境，每个执行环境有一个相关联的变量对象保存在内存中，变量对象中保存的是当前函数中定义的变量和函数。<br>当程序的执行流进入到函数时，就会将函数的执行环境压入到环境栈中，还会生成一个作用域链，作用域链指向的就是一系列变量对象，保证程序对变量的有序访问。<br>正常来说，当一个函数执行完毕，执行环境就会被弹出，其他地方没有办法访问到这个函数对应的变量对象，但是有一种情况例外，就是闭包。<br>闭包中虽然函数的执行环境被弹出，但是程序中仍然保有对该函数的变量对象的引用，因此在函数外仍然可以访问这个函数的内部定义的变量，这种情况就叫闭包。<br><a id="more"></a></p>
+<h2 id="闭包的应用场景"><a href="#闭包的应用场景" class="headerlink" title="闭包的应用场景"></a>闭包的应用场景</h2><ol>
+<li>使用闭包代替全局变量<br>我们经常小范围的使用全局变量，这个时候可以使用闭包来代替。</li>
+<li>函数外或在其他函数中访问某一函数内部的参数<br>为了解决在Ajax callback回调函数中经常需要继续使用主调函数的某一些参数</li>
+<li>在函数执行之前为要执行的函数提供具体参数。<br>比如setTimeOut,onreadyStateChange = function（）{}，里面不能传递参数，可以使用闭包</li>
+<li>在函数执行之前为函数提供只有在函数执行或引用时才能知道的具体参数。 </li>
+<li>为节点循环绑定click事件，在事件函数中使用当次循环的值或节点，而不是最后一次循环的值或节点</li>
+<li>暂停执行</li>
+<li>包装相关功能</li>
+</ol>
 
       
     </div>
@@ -303,22 +344,26 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
+          
+            <a href="/tags/闭包/" rel="tag">#闭包</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/28/块级元素和内联元素/" rel="next" title="块级元素和内联元素">
-                <i class="fa fa-chevron-left"></i> 块级元素和内联元素
+              <a href="/2017/05/02/float学习笔记/" rel="next" title="float学习笔记">
+                <i class="fa fa-chevron-left"></i> float学习笔记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/28/git回滚/" rel="prev" title="git回滚">
-                git回滚 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -344,8 +389,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/28/正则表达式/"
-           data-title="正则表达式" data-url="http://yoursite.com/2016/07/28/正则表达式/">
+      <div class="ds-thread" data-thread-key="2017/05/02/闭包相关知识/"
+           data-title="闭包相关知识" data-url="http://yoursite.com/2017/05/02/闭包相关知识/">
       </div>
     
   </div>
@@ -456,7 +501,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是闭包？"><span class="nav-number">1.</span> <span class="nav-text">什么是闭包？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包的应用场景"><span class="nav-number">2.</span> <span class="nav-text">闭包的应用场景</span></a></li></ol></div>
             
           </div>
         </section>
