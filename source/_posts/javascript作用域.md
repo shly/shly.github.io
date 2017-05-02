@@ -134,4 +134,4 @@ categories:
 		  console.log(this.a);
 		}
 这里c的执行环境是全局环境，故应输出window.a。
-关于this的指向的问题，请参看http://slygg.cn/2016/07/17/this/
+关于this的指向的问题，请参看http://shly.github.io/2016/07/17/this/

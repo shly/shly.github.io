@@ -9,7 +9,7 @@ categories:
   - 前端学习
 ---
 当使用css实现div在同一行中显示时，可以使用将div的display属性设为inline-block的方式，但是使用这种方式设置会有一个问题，即空的div和有内容的div并不在同一条水平线上。如下面例子中第一行的div。
-http://slygg.cn/shly/IFE/task_13/index.html
+http://shly.github.io/shly/IFE/task_13/index.html
 <!-- more -->
 
 那么为什么会产生这种现象呢？

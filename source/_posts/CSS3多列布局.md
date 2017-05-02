@@ -138,4 +138,4 @@ column-width，column-count的缩写
 
 <'column-width'> || <'column-count'>
 
-演示 http://slygg.cn/shly/IFE/task_12/index.html
+演示 http://shly.github.io/shly/IFE/task_12/index.html
