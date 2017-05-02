@@ -1,0 +1,749 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css3,css3多列布局," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="主要属性1 break-after、break-before、break-inside描述页面、列或者区域形成一个盒子后的中断行为（即是否中断以及如何中断），如果没有形成一个盒子，这个实行将会被忽略。每一个可能的断点（即每一个元素的边界）都是受三个属性的影响：前一个元素的break-after值，下一个元素的break-before值，以包含元素的break-inside值。">
+<meta name="keywords" content="css3,css3多列布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3多列布局">
+<meta property="og:url" content="http://yoursite.com/2016/05/18/CSS3多列布局/index.html">
+<meta property="og:site_name" content="shlyのspace">
+<meta property="og:description" content="主要属性1 break-after、break-before、break-inside描述页面、列或者区域形成一个盒子后的中断行为（即是否中断以及如何中断），如果没有形成一个盒子，这个实行将会被忽略。每一个可能的断点（即每一个元素的边界）都是受三个属性的影响：前一个元素的break-after值，下一个元素的break-before值，以包含元素的break-inside值。">
+<meta property="og:updated_time" content="2016-05-24T13:20:55.496Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3多列布局">
+<meta name="twitter:description" content="主要属性1 break-after、break-before、break-inside描述页面、列或者区域形成一个盒子后的中断行为（即是否中断以及如何中断），如果没有形成一个盒子，这个实行将会被忽略。每一个可能的断点（即每一个元素的边界）都是受三个属性的影响：前一个元素的break-after值，下一个元素的break-before值，以包含元素的break-inside值。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> CSS3多列布局 | shlyのspace </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">shlyのspace</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">每天进步一点点</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS3多列布局
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-18T17:21:45+08:00" content="2016-05-18">
+              2016-05-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/前端学习/" itemprop="url" rel="index">
+                    <span itemprop="name">前端学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/18/CSS3多列布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/18/CSS3多列布局/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="主要属性"><a href="#主要属性" class="headerlink" title="主要属性"></a>主要属性</h1><h2 id="1-break-after、break-before、break-inside"><a href="#1-break-after、break-before、break-inside" class="headerlink" title="1 break-after、break-before、break-inside"></a>1 break-after、break-before、break-inside</h2><p>描述页面、列或者区域形成一个盒子后的中断行为（即是否中断以及如何中断），如果没有形成一个盒子，这个实行将会被忽略。<br>每一个可能的断点（即每一个元素的边界）都是受三个属性的影响：前一个元素的break-after值，下一个元素的break-before值，以包含元素的break-inside值。<br><a id="more"></a><br>规定断点要遵循以下的规则：</p>
+<ol>
+<li>如果三个值中的任何一个值是强制中断值，即left, right, page, column 或者region，这个值具有优先级，如果有多个强制型的中断值同时出现，那么在流中最后一个出现的值生效。（即break-before的值的优先级高于break-after, break-after的优先级高于break-inside）</li>
+<li>这三个值中的任意一个是避免中断的值，即avoid, avoid-page, avoid-region, avoid-column，那么应用的地方就不会被中断。</li>
+</ol>
+<p>一旦应用了强制中断，当需要的时候可以添加软中断，但是不能应用在一个使用了aviod值的元素边界上。</p>
+<pre><code>Initial value    auto
+Applies to    block-level elements
+Inherited    no
+Media    paged
+Computed value    as specified
+Animatable    no
+Canonical order    the unique non-ambiguous order defined by the formal grammar
+</code></pre><h3 id="values"><a href="#values" class="headerlink" title="values"></a>values</h3><pre><code>auto | avoid | avoid-page | page | left | right | recto | verso | avoid-column | column | avoid-region | region
+</code></pre><h2 id="2-columns-count"><a href="#2-columns-count" class="headerlink" title="2 columns-count"></a>2 columns-count</h2><p>column-count属性描述元素列的个数。</p>
+<pre><code>Initial value    auto
+Applies to    non-replaced block elements (except table elements), table-cell or inline-block elements
+Inherited    no
+Media    visual
+Computed value    as specified
+Animatable    yes, as an integer
+Canonical order    the unique non-ambiguous order defined by the formal grammar
+</code></pre><h2 id="3-column-fill"><a href="#3-column-fill" class="headerlink" title="3 column-fill"></a>3 column-fill</h2><p>column-fill属性描述内容是如何被分配到各列中的。</p>
+<h3 id="values-1"><a href="#values-1" class="headerlink" title="values"></a>values</h3><pre><code>auto | balance
+</code></pre><p>balance:每行高度相同。<br>auto:只占据内容需要的空间。</p>
+<pre><code>Initial value    balance
+Applies to    multicol elements
+Inherited    no
+Media    visual, but, in continuous media, has no effect in overflow columns
+Computed value    as specified
+Animatable    no
+Canonical order    the unique non-ambiguous order defined by the formal grammar
+</code></pre><h2 id="4-column-gap"><a href="#4-column-gap" class="headerlink" title="4 column-gap"></a>4 column-gap</h2><p>描述列之间的间距。</p>
+<h3 id="values-2"><a href="#values-2" class="headerlink" title="values"></a>values</h3><pre><code>&lt;length&gt; | normal
+</code></pre><p>normal:浏览器默认间距</p>
+<pre><code>Initial value    normal
+Applies to    multicol elements
+Inherited    no
+Media    visual
+Computed value    the absolute length or the keyword normal
+Animatable    yes, as a length
+Canonical order    the unique non-ambiguous order defined by the formal grammar
+</code></pre><h2 id="5-column-row"><a href="#5-column-row" class="headerlink" title="5 column-row"></a>5 column-row</h2><p>在多列布局中column-row指定指定列之间的分割线，是 column-rule-width, column-rule-style and column-rule-color.的简写形式。</p>
+<pre><code>Initial value    as each of the properties of the shorthand:
+column-rule-width: medium
+column-rule-style: none
+column-rule-color: currentColor
+Applies to    multicol elements
+Inherited    no
+Media    visual
+Computed value    as each of the properties of the shorthand:
+column-rule-color: If the value is translucent, the computed value will be the rgba() corresponding one. If it isn&apos;t, it will be the rgb() corresponding one. The transparent keyword maps to rgba(0,0,0,0).
+column-rule-style: as specified
+column-rule-width: the absolute length; 0 if the column-rule-style is none or hidden
+Animatable    as each of the properties of the shorthand:
+column-rule-color: yes, as a color
+column-rule-style: no
+column-rule-width: yes, as a length
+Canonical order    order of appearance in the formal grammar of the values
+</code></pre><h3 id="values-3"><a href="#values-3" class="headerlink" title="values"></a>values</h3><pre><code>&lt;&apos;column-rule-width&apos;&gt;
+&lt;length&gt;|thin|medium|thick
+&lt;&apos;column-rule-style&apos;&gt;
+none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset
+&lt;&apos;column-rule-color&apos;&gt;
+Is a &lt;color&gt; value.
+</code></pre><p><em>取值相当于border</em></p>
+<h2 id="6-column-span"><a href="#6-column-span" class="headerlink" title="6 column-span"></a>6 column-span</h2><p>当一个元素的column-span属性被设置为all时，它可以让这个元素跨越所有列，当一个元素跨越超过一个列时，这个元素叫spanning element。</p>
+<pre><code>Initial value    none
+Applies to    in-flow block-level elements
+Inherited    no
+Media    visual
+Computed value    as specified
+Animatable    no
+Canonical order    the unique non-ambiguous order defined by the formal grammar
+</code></pre><h3 id="values-4"><a href="#values-4" class="headerlink" title="values"></a>values</h3><pre><code>none | all
+</code></pre><p>如：</p>
+<pre><code>h1, h2 {
+  column-span: all;
+}
+</code></pre><h2 id="7-column-width"><a href="#7-column-width" class="headerlink" title="7 column-width"></a>7 column-width</h2><p>column-width在没有column-count的情况下用来计算应该有多少列。比如容器的宽度为500px，column-gap为0，column-width设为400，则只能显示一列，且列的实际宽度为500px。如果column-width设为250px,则显示两列，每列宽度为250px。这时候将column-count设为1则显示一列，设为2显示两列，设为3还是显示两列。（所以应该是每列的最小宽度）</p>
+<h2 id="8-columns"><a href="#8-columns" class="headerlink" title="8 columns"></a>8 columns</h2><p>column-width，column-count的缩写</p>
+<pre><code>Initial value    as each of the properties of the shorthand:
+column-width: auto
+column-count: auto
+Applies to    non-replaced block elements (except table elements), table-cell or inline-block elements
+Inherited    no
+Media    visual
+Computed value    as each of the properties of the shorthand:
+column-width: the absolute length, zero or larger
+column-count: as specified
+Animatable    as each of the properties of the shorthand:
+column-width: yes, as a length
+column-count: yes, as an integer
+Canonical order    order of appearance in the formal grammar of the values
+</code></pre><p>&lt;’column-width’&gt; || &lt;’column-count’&gt;</p>
+<p>演示 <a href="http://slygg.cn/shly/IFE/task_12/index.html" target="_blank" rel="external">http://slygg.cn/shly/IFE/task_12/index.html</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css3/" rel="tag">#css3</a>
+          
+            <a href="/tags/css3多列布局/" rel="tag">#css3多列布局</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/17/BFC/" rel="next" title="CSS中的BFC">
+                <i class="fa fa-chevron-left"></i> CSS中的BFC
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/24/数据库/" rel="prev" title="数据库学习笔记（一）">
+                数据库学习笔记（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/18/CSS3多列布局/"
+           data-title="CSS3多列布局" data-url="http://yoursite.com/2016/05/18/CSS3多列布局/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/zhudi.jpg"
+               alt="shly" />
+          <p class="site-author-name" itemprop="name">shly</p>
+          <p class="site-description motion-element" itemprop="description">To get one thing, the best way is to prove that you deserve it</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/shly" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2352730443/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主要属性"><span class="nav-number">1.</span> <span class="nav-text">主要属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-break-after、break-before、break-inside"><span class="nav-number">1.1.</span> <span class="nav-text">1 break-after、break-before、break-inside</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#values"><span class="nav-number">1.1.1.</span> <span class="nav-text">values</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-columns-count"><span class="nav-number">1.2.</span> <span class="nav-text">2 columns-count</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-column-fill"><span class="nav-number">1.3.</span> <span class="nav-text">3 column-fill</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#values-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">values</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-column-gap"><span class="nav-number">1.4.</span> <span class="nav-text">4 column-gap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#values-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">values</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-column-row"><span class="nav-number">1.5.</span> <span class="nav-text">5 column-row</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#values-3"><span class="nav-number">1.5.1.</span> <span class="nav-text">values</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-column-span"><span class="nav-number">1.6.</span> <span class="nav-text">6 column-span</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#values-4"><span class="nav-number">1.6.1.</span> <span class="nav-text">values</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-column-width"><span class="nav-number">1.7.</span> <span class="nav-text">7 column-width</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-columns"><span class="nav-number">1.8.</span> <span class="nav-text">8 columns</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shly</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shangly"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

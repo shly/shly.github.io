@@ -1,0 +1,747 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="来源：http://www.gulpjs.com.cn/docs/api/ 自动化构建工具gulp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp API">
+<meta property="og:url" content="http://yoursite.com/2016/07/21/gulp/index.html">
+<meta property="og:site_name" content="shlyのspace">
+<meta property="og:description" content="来源：http://www.gulpjs.com.cn/docs/api/ 自动化构建工具gulp">
+<meta property="og:updated_time" content="2016-07-27T13:03:38.449Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp API">
+<meta name="twitter:description" content="来源：http://www.gulpjs.com.cn/docs/api/ 自动化构建工具gulp">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> gulp API | shlyのspace </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">shlyのspace</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">每天进步一点点</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                gulp API
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-21T16:58:18+08:00" content="2016-07-21">
+              2016-07-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/21/gulp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/gulp/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>来源：<a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="external">http://www.gulpjs.com.cn/docs/api/</a></p>
+<p>自动化构建工具gulp<br><a id="more"></a></p>
+<p>一 gulp.src(globs[,options])<br>输出（Emits）符合所提供的匹配模式（glob）或者匹配模式的数组（array of globs）的文件。 将返回一个 Vinyl files 的 stream 它可以被 piped 到别的插件中。</p>
+<pre><code>gulp.src(&apos;client/templates/*.jade&apos;)
+  .pipe(jade())
+  .pipe(minify())
+  .pipe(gulp.dest(&apos;build/minified_templates&apos;));
+</code></pre><p>glob 请参考 node-glob 语法 或者，你也可以直接写文件的路径。</p>
+<p>globs</p>
+<p>类型： String 或 Array</p>
+<p>所要读取的 glob 或者包含 globs 的数组。<br>options</p>
+<p>类型： Object</p>
+<p>通过 glob-stream 所传递给 node-glob 的参数。</p>
+<p>除了 node-glob 和 glob-stream 所支持的参数外，gulp 增加了一些额外的选项参数：<br>options.buffer</p>
+<p>类型： Boolean 默认值： true</p>
+<p>如果该项被设置为 false，那么将会以 stream 方式返回 file.contents 而不是文件 buffer 的形式。这在处理一些大文件的时候将会很有用。<strong>注意：</strong>插件可能并不会实现对 stream 的支持。</p>
+<p>options.read</p>
+<p>类型： Boolean 默认值： true</p>
+<p>如果该项被设置为 false， 那么 file.contents 会返回空值（null），也就是并不会去读取文件。</p>
+<p>options.base</p>
+<p>类型： String 默认值： 将会加在 glob 之前 (请看 glob2base)</p>
+<p>二 gulp.dest(path[, options])<br>能被 pipe 进来，并且将会写文件。并且重新输出（emits）所有数据，因此你可以将它 pipe 到多个文件夹。如果某文件夹不存在，将会自动创建它。<br>path</p>
+<p>类型： String or Function</p>
+<p>文件将被写入的路径（输出目录）。也可以传入一个函数，在函数中返回相应路径，这个函数也可以由 vinyl 文件实例 来提供。</p>
+<p>options</p>
+<p>类型： Object</p>
+<p>options.cwd</p>
+<p>类型： String 默认值： process.cwd()</p>
+<p>输出目录的 cwd 参数，只在所给的输出目录是相对路径时候有效。</p>
+<p>options.mode</p>
+<p>类型： String 默认值： 0777</p>
+<p>八进制权限字符，用以定义所有在输出目录中所创建的目录的权限。</p>
+<p>三 gulp.task(name[, deps], fn)</p>
+<p>定义一个使用 Orchestrator 实现的任务（task）。<br>name</p>
+<p>任务的名字，如果你需要在命令行中运行你的某些任务，那么，请不要在名字中使用空格。</p>
+<p>deps</p>
+<p>类型： Array</p>
+<p>一个包含任务列表的数组，这些任务会在你当前任务运行之前完成。<br>    gulp.task(‘mytask’, [‘array’, ‘of’, ‘task’, ‘names’], function() {<br>      // 做一些事<br>    });<br>注意： 你的任务是否在这些前置依赖的任务完成之前运行了？请一定要确保你所依赖的任务列表中的任务都使用了正确的异步执行方式：使用一个 callback，或者返回一个 promise 或 stream。</p>
+<p>fn</p>
+<p>该函数定义任务所要执行的一些操作。通常来说，它会是这种形式：gulp.src().pipe(someplugin())。</p>
+<p>异步任务支持</p>
+<p>任务可以异步执行，如果 fn 能做到以下其中一点：</p>
+<p>接受一个 callback</p>
+<pre><code>// 在 shell 中执行一个命令
+var exec = require(&apos;child_process&apos;).exec;
+gulp.task(&apos;jekyll&apos;, function(cb) {
+  // 编译 Jekyll
+  exec(&apos;jekyll build&apos;, function(err) {
+    if (err) return cb(err); // 返回 error
+    cb(); // 完成 task
+  });
+});
+</code></pre><p>返回一个 stream</p>
+<pre><code>gulp.task(&apos;somename&apos;, function() {
+  var stream = gulp.src(&apos;client/**/*.js&apos;)
+    .pipe(minify())
+    .pipe(gulp.dest(&apos;build&apos;));
+  return stream;
+});
+</code></pre><p>返回一个 promise</p>
+<pre><code>var Q = require(&apos;q&apos;);
+
+gulp.task(&apos;somename&apos;, function() {
+  var deferred = Q.defer();
+
+  // 执行异步的操作
+  setTimeout(function() {
+    deferred.resolve();
+  }, 1);
+
+  return deferred.promise;
+});
+</code></pre><p>注意： 默认的，task 将以最大的并发数执行，也就是说，gulp 会一次性运行所有的 task 并且不做任何等待。如果你想要创建一个序列化的 task 队列，并以特定的顺序执行，你需要做两件事：</p>
+<p>给出一个提示，来告知 task 什么时候执行完毕，<br>并且再给出一个提示，来告知一个 task 依赖另一个 task 的完成。<br>对于这个例子，让我们先假定你有两个 task，”one” 和 “two”，并且你希望它们按照这个顺序执行：</p>
+<p>在 “one” 中，你加入一个提示，来告知什么时候它会完成：可以再完成时候返回一个 callback，或者返回一个 promise 或 stream，这样系统会去等待它完成。</p>
+<p>在 “two” 中，你需要添加一个提示来告诉系统它需要依赖第一个 task 完成。</p>
+<p>因此，这个例子的实际代码将会是这样：</p>
+<pre><code>var gulp = require(&apos;gulp&apos;);
+
+// 返回一个 callback，因此系统可以知道它什么时候完成
+gulp.task(&apos;one&apos;, function(cb) {
+    // 做一些事 -- 异步的或者其他的
+    cb(err); // 如果 err 不是 null 或 undefined，则会停止执行，且注意，这样代表执行失败了
+});
+
+// 定义一个所依赖的 task 必须在这个 task 执行之前完成
+gulp.task(&apos;two&apos;, [&apos;one&apos;], function() {
+    // &apos;one&apos; 完成后
+});
+
+gulp.task(&apos;default&apos;, [&apos;one&apos;, &apos;two&apos;]);
+</code></pre><p>四 gulp.watch(glob [, opts], tasks) 或 gulp.watch(glob [, opts, cb])</p>
+<p>监视文件，并且可以在文件发生改动时候做一些事情。它总会返回一个 EventEmitter 来发射（emit） change 事件。</p>
+<p>（1）gulp.watch(glob[, opts], tasks)</p>
+<p>glob</p>
+<p>类型： String or Array</p>
+<p>一个 glob 字符串，或者一个包含多个 glob 字符串的数组，用来指定具体监控哪些文件的变动。</p>
+<p>opts</p>
+<p>类型： Object</p>
+<p>传给 gaze 的参数。</p>
+<p>tasks</p>
+<p>类型： Array</p>
+<p>需要在文件变动后执行的一个或者多个通过 gulp.task() 创建的 task 的名字，</p>
+<pre><code>var watcher = gulp.watch(&apos;js/**/*.js&apos;, [&apos;uglify&apos;,&apos;reload&apos;]);
+watcher.on(&apos;change&apos;, function(event) {
+  console.log(&apos;File &apos; + event.path + &apos; was &apos; + event.type + &apos;, running tasks...&apos;);
+});
+</code></pre><p>（2）gulp.watch(glob[, opts, cb])</p>
+<p>glob</p>
+<p>类型： String or Array</p>
+<p>一个 glob 字符串，或者一个包含多个 glob 字符串的数组，用来指定具体监控哪些文件的变动。</p>
+<p>opts</p>
+<p>类型： Object</p>
+<p>传给 gaze 的参数。</p>
+<p>cb(event)</p>
+<p>类型： Function</p>
+<p>每次变动需要执行的 callback。</p>
+<pre><code>gulp.watch(&apos;js/**/*.js&apos;, function(event) {
+  console.log(&apos;File &apos; + event.path + &apos; was &apos; + event.type + &apos;, running tasks...&apos;);
+});
+</code></pre><p>callback 会被传入一个名为 event 的对象。这个对象描述了所监控到的变动：</p>
+<p>event.type</p>
+<p>类型： String</p>
+<p>发生的变动的类型：added, changed 或者 deleted。</p>
+<p>event.path</p>
+<p>类型： String</p>
+<p>触发了该事件的文件的路径。</p>
+<p>用法举例：</p>
+<pre><code>gulp.task(&apos;styles&apos;, function() {
+    return gulp.src(&apos;sass/demo.scss&apos;)
+        .pipe($.sass())
+        .pipe($.autoprefixer())
+        .pipe(gulp.dest(&apos;css&apos;));
+});
+</code></pre>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/20/将本地项目首次提交到远程git上遇到的问题/" rel="next" title="将本地项目首次提交到远程git上遇到的问题">
+                <i class="fa fa-chevron-left"></i> 将本地项目首次提交到远程git上遇到的问题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/26/npm/" rel="prev" title="npm笔记(修改npm镜像站)">
+                npm笔记(修改npm镜像站) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/21/gulp/"
+           data-title="gulp API" data-url="http://yoursite.com/2016/07/21/gulp/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/zhudi.jpg"
+               alt="shly" />
+          <p class="site-author-name" itemprop="name">shly</p>
+          <p class="site-description motion-element" itemprop="description">To get one thing, the best way is to prove that you deserve it</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/shly" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2352730443/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shly</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shangly"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

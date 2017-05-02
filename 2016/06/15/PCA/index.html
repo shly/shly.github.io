@@ -1,0 +1,685 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据挖掘,降维," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="为什么要降维  在数据挖掘中，实际起作用的特征往往是未知的，因此在挖掘的过程中为了保证结果的准确性往往会引入大量的特征，但是这些特征包含的信息量各不相同，有些甚至与结果完全不相关，另外，特征之间也不一定是彼此独立的，有些是有交叉的，有共性的，相关的。在很多的应用中，数据特征数量十分庞大，不移除这些无关的特征会预测算法也不会有好的运行效果。">
+<meta name="keywords" content="数据挖掘,降维">
+<meta property="og:type" content="article">
+<meta property="og:title" content="降维方法之PCA">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/PCA/index.html">
+<meta property="og:site_name" content="shlyのspace">
+<meta property="og:description" content="为什么要降维  在数据挖掘中，实际起作用的特征往往是未知的，因此在挖掘的过程中为了保证结果的准确性往往会引入大量的特征，但是这些特征包含的信息量各不相同，有些甚至与结果完全不相关，另外，特征之间也不一定是彼此独立的，有些是有交叉的，有共性的，相关的。在很多的应用中，数据特征数量十分庞大，不移除这些无关的特征会预测算法也不会有好的运行效果。">
+<meta property="og:updated_time" content="2016-06-21T13:29:06.906Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="降维方法之PCA">
+<meta name="twitter:description" content="为什么要降维  在数据挖掘中，实际起作用的特征往往是未知的，因此在挖掘的过程中为了保证结果的准确性往往会引入大量的特征，但是这些特征包含的信息量各不相同，有些甚至与结果完全不相关，另外，特征之间也不一定是彼此独立的，有些是有交叉的，有共性的，相关的。在很多的应用中，数据特征数量十分庞大，不移除这些无关的特征会预测算法也不会有好的运行效果。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 降维方法之PCA | shlyのspace </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">shlyのspace</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">每天进步一点点</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                降维方法之PCA
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T10:33:23+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/数据挖掘/" itemprop="url" rel="index">
+                    <span itemprop="name">数据挖掘</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/PCA/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/PCA/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="为什么要降维"><a href="#为什么要降维" class="headerlink" title="为什么要降维"></a>为什么要降维</h1><p>  在数据挖掘中，实际起作用的特征往往是未知的，因此在挖掘的过程中为了保证结果的准确性往往会引入大量的特征，但是这些特征包含的信息量各不相同，有些甚至与结果完全不相关，另外，特征之间也不一定是彼此独立的，有些是有交叉的，有共性的，相关的。在很多的应用中，数据特征数量十分庞大，不移除这些无关的特征会预测算法也不会有好的运行效果。<br><a id="more"></a><br>  通过特征选取，即对特征进行降维，可以减少预测变量的数量，有效地提高算法运行速度，提升预测准确度。降维主要通过两个方面进行，一是去除与结果无关的特征，一是合并相关特征。降维的方法有很多，本文主要介绍主成分分析法。</p>
+<h1 id="主成分分析法简介"><a href="#主成分分析法简介" class="headerlink" title="主成分分析法简介"></a>主成分分析法简介</h1><p>  主成分分析（principal components analysis，PCA）又称：主分量分析，主成分回归分析法。主成分分析是设法将原来众多具有一定相关性（比如P个指标），重新组合成一组新的互相无关的综合指标来代替原来的指标。即主要通过消除相关特征来达到降维的目的。主成分分析实际就是将一些相关变量通过线性组合组合成单一变量来达到降维的目的。</p>
+<h1 id="使用主成分分析法降维的优缺点"><a href="#使用主成分分析法降维的优缺点" class="headerlink" title="使用主成分分析法降维的优缺点"></a>使用主成分分析法降维的优缺点</h1><ol>
+<li><p>优点：</p>
+<p>（1）可消除评估指标之间的相关影响。因为主成分分析法在对原始数据指标变量进行变换后形成了彼此相互独立的主成分，而且实践证明指标间相关程度越高，主成分分析效果越好。</p>
+<p>（2）可减少指标选择的工作量，对于其他评估方法，由于难以消除评估指标间的相关影响，所以选择指标时要花费不少精力，而主成分分析法由于可以消除这种相关影响，所以在指标选择上相对容易些。</p>
+<p>（3）主成分分析中各主成分是按方差大小依次排列顺序的，在分析问题时，可以舍弃一部分主成分，只取前面方差较大的几个主成分来代表原变量，从而减少了计算工作量。用主成分分析法作综合评估时，由于选择的原则是累计贡献率≥85%，不至于因为节省了工作量却把关键指标漏掉而影响评估结果。</p>
+</li>
+<li><p>缺点：</p>
+<p>主成分的解释其含义一般多少带有点模糊性，不像原始变量的含义那么清楚、确切，这是变量降维过程中不得不付出的代价。因此，提取的主成分个数m通常应明显小于原始变量个数p（除非p本身较小），否则维数降低的“利”可能抵不过主成分含义不如原始变量清楚的“弊”。</p>
+</li>
+</ol>
+<h1 id="几何解释"><a href="#几何解释" class="headerlink" title="几何解释"></a>几何解释</h1><p>  寻求原指标的线性组合Fi<br>F1 = a11X1+a21X2+…+ap1Xp<br>F2 = a12X1+a22X2+…+ap2Xp<br>…<br>  满足如下条件：<br>  （1）每个主成分的系数平方和为1，<br>  （2）主成分之间互相独立，即无重叠信息cov（Fi,Fj）= 0<br>  （3）主成分的方差依次递减，重要性依次递减</p>
+<h1 id="PCA步骤"><a href="#PCA步骤" class="headerlink" title="PCA步骤"></a>PCA步骤</h1><ol>
+<li>对原始数据标准化即每一维的数据都减去该维的均值，变换之后每一维的均值都变成了0</li>
+<li>计算相关系数矩阵</li>
+<li>计算协方差矩阵的特征值与特征向量</li>
+<li>选取大的特征值对应的特征向量，得到新的数据集</li>
+</ol>
+<h1 id="知识准备"><a href="#知识准备" class="headerlink" title="知识准备"></a>知识准备</h1><ol>
+<li>对角矩阵(diagonal matrix)是一个主对角线之外的元素皆为 0 的矩阵。对角线上的元素可以为 0 或其他值。矩阵可对角化的充分必要条件为n阶矩阵有n个先行无关的特征向量，或矩阵的每个特征值得重数等于对应特征子空间的（几何）维数</li>
+<li>相似矩阵：设A，B为n阶矩阵，如果有n阶可逆矩阵P存在，使得P^(-1)<em>A</em>P=B,则称矩阵A与B相似，记为A~B。若A与B相似，则A与B有着相同的特征方程和特征值。</li>
+<li>若矩阵可对角化，则可按下列步骤来实现:<br>(1) 求出的全部特征值;<br>(2) 对每一个特征值,设其重数为1,则对应齐次方程组的基础解系由个向量构成, 即为对应的线性无关的特征向量；<br>(3) 上面求出的特征向量恰好为矩阵的个线性无关的特征向量;</li>
+<li>因子载荷量<br>主成分与变量间的相关系数即因子载荷量的大小和它前面的正负号直接反映了主成分与相关变量之间关系的密切程度和方向，从而可以说明各主成分的意义。</li>
+</ol>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol>
+<li>对训练数据进行降维后，如何对测试数据进行降维？</li>
+</ol>
+<h1 id="比较好的文章"><a href="#比较好的文章" class="headerlink" title="比较好的文章"></a>比较好的文章</h1><p><a href="http://blog.sina.com.cn/s/blog_61b8694b0101jg4f.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_61b8694b0101jg4f.html</a><br><a href="http://my.oschina.net/gujianhan/blog/225241" target="_blank" rel="external">http://my.oschina.net/gujianhan/blog/225241</a><br><a href="http://www.cnblogs.com/zhangchaoyang/articles/2222048.html" target="_blank" rel="external">http://www.cnblogs.com/zhangchaoyang/articles/2222048.html</a><br><a href="http://wenku.baidu.com/view/f786f6be1a37f111f1855bf7.html?from" target="_blank" rel="external">http://wenku.baidu.com/view/f786f6be1a37f111f1855bf7.html?from</a><br><a href="http://blog.csdn.net/qq1987924/article/details/45965431" target="_blank" rel="external">http://blog.csdn.net/qq1987924/article/details/45965431</a><br><a href="http://blog.csdn.net/rogerzhanglijie/article/details/8251359" target="_blank" rel="external">http://blog.csdn.net/rogerzhanglijie/article/details/8251359</a>  </p>
+<ul>
+<li><a href="http://www.tuicool.com/articles/7BN7n2" target="_blank" rel="external">http://www.tuicool.com/articles/7BN7n2</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据挖掘/" rel="tag">#数据挖掘</a>
+          
+            <a href="/tags/降维/" rel="tag">#降维</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/14/bt/" rel="next" title="二叉树遍历java版（递归与非递归）">
+                <i class="fa fa-chevron-left"></i> 二叉树遍历java版（递归与非递归）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/16/each/" rel="prev" title="jQuery each方法">
+                jQuery each方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/15/PCA/"
+           data-title="降维方法之PCA" data-url="http://yoursite.com/2016/06/15/PCA/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/zhudi.jpg"
+               alt="shly" />
+          <p class="site-author-name" itemprop="name">shly</p>
+          <p class="site-description motion-element" itemprop="description">To get one thing, the best way is to prove that you deserve it</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/shly" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2352730443/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要降维"><span class="nav-number">1.</span> <span class="nav-text">为什么要降维</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主成分分析法简介"><span class="nav-number">2.</span> <span class="nav-text">主成分分析法简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用主成分分析法降维的优缺点"><span class="nav-number">3.</span> <span class="nav-text">使用主成分分析法降维的优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#几何解释"><span class="nav-number">4.</span> <span class="nav-text">几何解释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA步骤"><span class="nav-number">5.</span> <span class="nav-text">PCA步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识准备"><span class="nav-number">6.</span> <span class="nav-text">知识准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">7.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较好的文章"><span class="nav-number">8.</span> <span class="nav-text">比较好的文章</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shly</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shangly"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

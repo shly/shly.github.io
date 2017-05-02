@@ -1,0 +1,676 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据挖掘,算法评价指标," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="这篇文章只要是介绍分类算法评估标准，介绍标准之前首先介绍一下评价算法的前提，混淆矩阵，如图">
+<meta name="keywords" content="数据挖掘,算法评价指标">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROC与AUC">
+<meta property="og:url" content="http://yoursite.com/2016/06/01/ROC/index.html">
+<meta property="og:site_name" content="shlyのspace">
+<meta property="og:description" content="这篇文章只要是介绍分类算法评估标准，介绍标准之前首先介绍一下评价算法的前提，混淆矩阵，如图">
+<meta property="og:image" content="http://yoursite.com/img/roc/1.png">
+<meta property="og:image" content="http://yoursite.com/img/roc/2.gif">
+<meta property="og:image" content="http://yoursite.com/img/roc/3.png">
+<meta property="og:image" content="http://yoursite.com/img/roc/4.gif">
+<meta property="og:image" content="http://yoursite.com/img/roc/5.png">
+<meta property="og:updated_time" content="2017-05-02T11:39:22.017Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ROC与AUC">
+<meta name="twitter:description" content="这篇文章只要是介绍分类算法评估标准，介绍标准之前首先介绍一下评价算法的前提，混淆矩阵，如图">
+<meta name="twitter:image" content="http://yoursite.com/img/roc/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> ROC与AUC | shlyのspace </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">shlyのspace</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">每天进步一点点</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ROC与AUC
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-01T20:51:06+08:00" content="2016-06-01">
+              2016-06-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/数据挖掘/" itemprop="url" rel="index">
+                    <span itemprop="name">数据挖掘</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/01/ROC/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/01/ROC/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章只要是介绍分类算法评估标准，介绍标准之前首先介绍一下评价算法的前提，混淆矩阵，如图<br><a id="more"></a><br><img src="/img/roc/1.png" alt="混淆矩阵"><br>目前常用的评价一个分类算法好坏的标准有：</p>
+<ol>
+<li>Accuracy：表示预测结果的精确度，预测正确的样本数除以总样本数。（TP+TN）/(TP+FP+FN+TN)</li>
+<li>precision，准确率，表示预测结果中，预测为正样本的样本中，正确预测为正样本的概率；TP/(TP+FP)</li>
+<li>recall，召回率，表示在原始样本的正样本中，最后被正确预测为正样本的概率；TP/(TP+FN)</li>
+<li>specificity，常常称作特异性，它研究的样本集是原始样本中的负样本，表示的是在这些负样本中最后被正确预测为负样本的概率。TN/(FP+TN)<br>还有就是这篇文章里面要介绍的ROC曲线和AUC</li>
+</ol>
+<h1 id="什么是ROC？"><a href="#什么是ROC？" class="headerlink" title="什么是ROC？"></a>什么是ROC？</h1><p>ROC全称Receiver Operating Characteristic,翻译为”接受者操作特性曲线”,即ROC为二维平面上的一条曲线，<br>横坐标：FPR 假阳率（1-sp） =FP/(TN+FP)<br>纵坐标：TPR 真阳率（ recall ）= TP/(TP+FN)<br>如图<br><img src="/img/roc/2.gif" alt="ROC曲线"></p>
+<h1 id="ROC曲线有什么优点？"><a href="#ROC曲线有什么优点？" class="headerlink" title="ROC曲线有什么优点？"></a>ROC曲线有什么优点？</h1><p>提供不同试验之间在共同标尺下的直观的比较，ROC曲线越凸越近左上角表明其诊断价值越大，利于不同指标间的比较。该方法简单、直观，通过图示可观察分析方法的临床准确性，并可用肉眼作出判断。</p>
+<h1 id="什么是AUC"><a href="#什么是AUC" class="headerlink" title="什么是AUC"></a>什么是AUC</h1><p>AUC的值就是处于ROC curve下方的那部分面积的大小。通常，AUC的值介于0.5到1.0之间，较大的AUC代表了较好的performance。<br>0.5~0.7之间时有较低准确性<br>0.7~0.9之间有一定准确性<br>0.9以上有较高准确性。</p>
+<p><img src="/img/roc/3.png" alt="AUC"></p>
+<h1 id="AUC计算方式"><a href="#AUC计算方式" class="headerlink" title="AUC计算方式"></a>AUC计算方式</h1><ol>
+<li>积分的思想，逐步求面积</li>
+<li>一个关于AUC的很有趣的性质是，它和Wilcoxon-Mann-Witney Test是等价的。Wilcoxon-Mann-Witney Test就是测试任意给一个正类样本和一个负类样本，正类样本的score有多大的概率大于负类样本的score。<br>统计一下所有的 M×N(M为正类样本的数目，N为负类样本的数目)个正负样本对中，有多少个组中的正样本的score大于负样本的score。当二元组中正负样本的 score相等的时候，按照0.5计算。然后除以MN。实现这个方法的复杂度为O(n^2 )。n为样本数(即n=M+N)<br><img src="/img/roc/4.gif" alt="AUC"></li>
+<li>方法二的简化，首先把所有样本按照score排序,依次用rank表示他们,如最大score的样本,rank=n(n=N+M),其次为n-1。那么对于正样本中rank最大的样本,rank_max,有M-1个其他正样本比他score小,那么就有(rank_max-1)-(M-1)个负样本比他score小。其次为(rank_second-1)-(M-2)<br><img src="/img/roc/5.png" alt="AUC"></li>
+</ol>
+<h1 id="ROC与AUC与其他评价方法相比的好处？"><a href="#ROC与AUC与其他评价方法相比的好处？" class="headerlink" title="ROC与AUC与其他评价方法相比的好处？"></a>ROC与AUC与其他评价方法相比的好处？</h1><p>ROC曲线有个很好的特性：当测试集中的正负样本的分布变化的时候，ROC曲线能够保持不变。在实际的数据集中经常会出现类不平衡（class imbalance）现象，即负样本比正样本多很多（或者相反），而且测试数据中的正负样本的分布也可能随着时间变化。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据挖掘/" rel="tag">#数据挖掘</a>
+          
+            <a href="/tags/算法评价指标/" rel="tag">#算法评价指标</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/27/mergeSort/" rel="next" title="mergeSort">
+                <i class="fa fa-chevron-left"></i> mergeSort
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/12/svm/" rel="prev" title="SVM学习笔记（一）">
+                SVM学习笔记（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/01/ROC/"
+           data-title="ROC与AUC" data-url="http://yoursite.com/2016/06/01/ROC/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/zhudi.jpg"
+               alt="shly" />
+          <p class="site-author-name" itemprop="name">shly</p>
+          <p class="site-description motion-element" itemprop="description">To get one thing, the best way is to prove that you deserve it</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/shly" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2352730443/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是ROC？"><span class="nav-number">1.</span> <span class="nav-text">什么是ROC？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ROC曲线有什么优点？"><span class="nav-number">2.</span> <span class="nav-text">ROC曲线有什么优点？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是AUC"><span class="nav-number">3.</span> <span class="nav-text">什么是AUC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AUC计算方式"><span class="nav-number">4.</span> <span class="nav-text">AUC计算方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ROC与AUC与其他评价方法相比的好处？"><span class="nav-number">5.</span> <span class="nav-text">ROC与AUC与其他评价方法相比的好处？</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shly</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shangly"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
