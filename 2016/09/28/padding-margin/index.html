@@ -87,7 +87,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/28/padding-margin/index.html">
 <meta property="og:site_name" content="shlyのspace">
 <meta property="og:description" content="padding学习笔记 对于block水平元素：1.1 padding暴走则一定会影响尺寸1.2 width非auto，padding影响尺寸1.3 width为auto或box-sizing为border-box，同事padding值没有暴走，不影响尺寸">
-<meta property="og:updated_time" content="2017-05-03T13:06:06.455Z">
+<meta property="og:updated_time" content="2017-05-03T15:35:12.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="padding and margin学习笔记">
 <meta name="twitter:description" content="padding学习笔记 对于block水平元素：1.1 padding暴走则一定会影响尺寸1.2 width非auto，padding影响尺寸1.3 width为auto或box-sizing为border-box，同事padding值没有暴走，不影响尺寸">
@@ -416,7 +416,25 @@ float:left;
 }
 </code></pre></li>
 </ol>
-<h1 id="margin学习笔记"><a href="#margin学习笔记" class="headerlink" title="margin学习笔记"></a>margin学习笔记</h1>
+<h1 id="margin学习笔记"><a href="#margin学习笔记" class="headerlink" title="margin学习笔记"></a>margin学习笔记</h1><h2 id="margin与百分比单位"><a href="#margin与百分比单位" class="headerlink" title="margin与百分比单位"></a>margin与百分比单位</h2><ol>
+<li>水平方向百分比/垂直方向百分比</li>
+<li>普通元素百分比/绝对定位元素百分比<br>2.1 普通元素百分比计算规则：margin百分比都是相对于容器宽度计算的<br>2.2 绝对定位：相对于第一个定位祖先元素的宽度计算的</li>
+</ol>
+<h2 id="margin重叠"><a href="#margin重叠" class="headerlink" title="margin重叠"></a>margin重叠</h2><ol>
+<li>margin重叠通常特性<br>1.1 block水平元素上发生（不包括float和absolute元素）<br>1.2 不考虑writing-mode，只发生在垂直方向（margin-top和margin-bottom）</li>
+<li>margin重叠3中情景<br>2.1 相邻的兄弟元素<br>2.2 父元素和第一个或最后一个子元素<br>2.3 空的block元素margin:1em 0;占据高度为1em</li>
+<li>margin-top重叠<br>3.1 父元素非块状格式化上下文<br>3.2 父元素没有border-top设置<br>3.3 父元素没有padding-top设置<br>3.4 父元素和第一个子元素之间没有inline元素分隔</li>
+<li>margin-bottom重叠<br>4.1 父元素非块状格式化上下文<br>4.2 父元素没有border-bottom设置<br>4.3 父元素没有padding-bottom设置<br>4.4 父元素和第一个子元素之间没有inline元素分隔<br>4.5 父元素没有height，min-height,max-height限制</li>
+<li>空block重叠<br>5.1 元素没有border设置<br>5.2 元素没有padding设置<br>5.3 里面没有inline元素<br>5.4 没有height，或者min-height</li>
+<li>重叠的计算规则<br>6.1 正正取大<br>6.2 正负值相加<br>6.3 负负最负值（自身高度永远为0）</li>
+<li><p>善于margin重叠</p>
+<pre><code>.list{
+ margin-top:15px;
+ margin-bottom:15px;
+}//上下margin都使用增强健壮性
+</code></pre><h2 id="margin-auto"><a href="#margin-auto" class="headerlink" title="margin:auto"></a>margin:auto</h2></li>
+</ol>
+
       
     </div>
     
@@ -595,7 +613,7 @@ float:left;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#padding学习笔记"><span class="nav-number">1.</span> <span class="nav-text">padding学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#padding应用"><span class="nav-number">1.1.</span> <span class="nav-text">padding应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#padding负值和百分比值"><span class="nav-number">1.2.</span> <span class="nav-text">padding负值和百分比值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签元素的内置padding"><span class="nav-number">1.3.</span> <span class="nav-text">标签元素的内置padding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#padding与图形绘制"><span class="nav-number">1.4.</span> <span class="nav-text">padding与图形绘制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#padding布局应用"><span class="nav-number">1.5.</span> <span class="nav-text">padding布局应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#margin学习笔记"><span class="nav-number">2.</span> <span class="nav-text">margin学习笔记</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#padding学习笔记"><span class="nav-number">1.</span> <span class="nav-text">padding学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#padding应用"><span class="nav-number">1.1.</span> <span class="nav-text">padding应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#padding负值和百分比值"><span class="nav-number">1.2.</span> <span class="nav-text">padding负值和百分比值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签元素的内置padding"><span class="nav-number">1.3.</span> <span class="nav-text">标签元素的内置padding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#padding与图形绘制"><span class="nav-number">1.4.</span> <span class="nav-text">padding与图形绘制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#padding布局应用"><span class="nav-number">1.5.</span> <span class="nav-text">padding布局应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#margin学习笔记"><span class="nav-number">2.</span> <span class="nav-text">margin学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#margin与百分比单位"><span class="nav-number">2.1.</span> <span class="nav-text">margin与百分比单位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#margin重叠"><span class="nav-number">2.2.</span> <span class="nav-text">margin重叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#margin-auto"><span class="nav-number">2.3.</span> <span class="nav-text">margin:auto</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
