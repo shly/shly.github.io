@@ -176,4 +176,44 @@ categories:
         margin-top:15px;
         margin-bottom:15px;
        }//上下margin都使用增强健壮性
+
 ## margin:auto
+
+auto为剩余空间（比如当不设置宽度时，一个div如果自动填充全部空间，则给它设置了宽度后，剩下的空间则为剩余空间）
+
+## margin负值定位
+
+1. margin负值下的两端对齐（margin改变元素尺寸）
+
+      .box{
+          width: 1200px;
+          margin:auto;
+          background: orange;
+      }
+      .ul{
+          overflow: hidden;
+          margin-right: -20px;
+      }
+      .li{
+          width: 386.66px;
+          height: 300px;
+          margin-right: 20px;
+          background: green;
+          float: left;
+      }
+2. margin负值下的等高布局（margin改变元素占据空间）
+
+3. margin负值下的两栏自适应布局
+
+## margin无效情况解析
+
+1. inline元素垂直margin无效
+2. margin重叠
+3. display:table-cell/display:table-row等声明的margin无效（margin应用于display为table相关类型之外的所有。）
+4. position:absolute与margin。绝对定位元素非定位方向的margin是“无效的”（有效，对定位没有影响，但是影响占据的空间，肉眼看上去没有影响）
+5. 鞭长莫及导致的无效
+6. 内联特性导致的margin无效（受制于内联元素的对齐方式）
+
+## 了解margin-start/margin-end等
+正常流:margin-start=margin-left
+
